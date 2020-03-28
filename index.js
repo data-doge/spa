@@ -1,1 +1,3 @@
-console.log("welcome to spa")
+const Phaser = require('phaser')
+
+console.log(Phaser)

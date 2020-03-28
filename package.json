@@ -24,7 +24,9 @@
     "url": "https://github.com/data-doge/spa/issues"
   },
   "homepage": "https://github.com/data-doge/spa",
-  "dependencies": {},
+  "dependencies": {
+    "phaser": "^3.22.0"
+  },
   "devDependencies": {
     "browserify": "^10.0.0",
     "budo": "^4.0.0",
