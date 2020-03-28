@@ -18,6 +18,14 @@
     "type": "git",
     "url": "https://github.com/data-doge/spa"
   },
+  "standard": {
+    "globals": [
+      "AudioContext",
+      "GainNode",
+      "WebSocket",
+      "RTCPeerConnection"
+    ]
+  },
   "author": "data-doge",
   "license": "MIT",
   "bugs": {
@@ -25,7 +33,9 @@
   },
   "homepage": "https://github.com/data-doge/spa",
   "dependencies": {
-    "phaser": "^3.22.0"
+    "jquery": "^3.4.1",
+    "phaser": "^3.22.0",
+    "uuid": "^7.0.2"
   },
   "devDependencies": {
     "browserify": "^10.0.0",
