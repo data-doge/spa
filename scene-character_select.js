@@ -1,3 +1,5 @@
+// const game = require('./index')
+
 class CharacterSelect extends Phaser.Scene {
 
     constructor ()
@@ -10,7 +12,7 @@ class CharacterSelect extends Phaser.Scene {
     }
 
     create () {
-
+        let testText = this.add.text(0,0,'Hello!')
     }
 
     update () {
