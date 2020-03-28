@@ -12,7 +12,14 @@ class CharacterSelect extends Phaser.Scene {
     }
 
     create () {
-        let testText = this.add.text(0,0,'Hello!')
+        let testText = this.add.text(0,0,'Select a Character!')
+        let skinColor = localStorage.getItem('skinColor')
+
+        if (!skinColor) {
+        localStorage.setItem('skinColor', 'dark')
+        }
+
+        this.scene.start('Gameplay')
     }
 
     update () {

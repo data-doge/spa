@@ -10,7 +10,11 @@ class Gameplay extends Phaser.Scene {
     }
 
     create () {
+        console.log('Gameplay')
 
+        let skinColor = localStorage.getItem('skinColor')
+
+        let player = this.add.sprite(400, 300, 'player-skin-' + skinColor)
     }
 
     update () {

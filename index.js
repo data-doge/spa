@@ -1,4 +1,5 @@
 const Phaser = require('phaser')
+const Preload = require('./preload')
 const CharacterSelect = require('./scene-character_select')
 const Gameplay = require('./scene-gameplay')
 const Credits = require('./scene-credits')
@@ -13,7 +14,7 @@ let config = {
       gravity: { y: 200 }
     }
   },
-  scene: [ CharacterSelect, Gameplay, Credits ]
+  scene: [ Preload, CharacterSelect, Gameplay, Credits ]
 }
 
 let game = new Phaser.Game(config);
