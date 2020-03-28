@@ -18,7 +18,7 @@ const config = {
       gravity: { y: 200 }
     }
   },
-  scene: [ Preload, CharacterSelect, Gameplay, Credits ]
+  scene: [Preload, CharacterSelect, Gameplay, Credits]
 }
 
 const game = new Phaser.Game(config)
@@ -32,7 +32,7 @@ window.RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSess
 const id = uuid.v4()
 let $peerConnection = null
 let $localStream = null
-const $serverConnection = new WebSocket('ws://spa-server.ngrok.io')
+const $serverConnection = new WebSocket('wss://spa-server.ngrok.io')
 $serverConnection.onmessage = gotMessageFromServer
 
 audioShit.start((err, stream) => {
