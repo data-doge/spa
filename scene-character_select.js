@@ -18,7 +18,7 @@ class CharacterSelect extends Phaser.Scene {
         let skinColor = localStorage.getItem('skinColor')
 
         if (skinColor) {
-            // this.continue();
+            this.continue();
         }
 
         // Define skin color options on screen, make them clickable and run function to set skin color
