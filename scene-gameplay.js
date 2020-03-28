@@ -25,6 +25,17 @@ class Gameplay extends Phaser.Scene {
         let skinColor = localStorage.getItem('skinColor')
         this.player = this.add.sprite(400, 300, 'player-skin-' + skinColor)
 
+        // Create player animations
+        this.anims.create({
+            key: 'standing-front',
+            frames: this.anims.generateFrameNumbers('player-skin-' + skinColor, { start: 0, end: 0 })
+        })
+
+        this.anims.create({
+            key: 'standing-back',
+            frames: this.anims.generateFrameNumbers('player-skin-' + skinColor, { start: 1, end: 1 })
+        })
+
         // Player physics
         this.physics.add.existing(this.player)
         this.player.body.collideWorldBounds = true;
@@ -69,10 +80,12 @@ class Gameplay extends Phaser.Scene {
         // Move player
         this.input.keyboard.on('keyup-UP', () => {
             this.player.body.velocity.y = 0
+            this.player.play('standing-back')
         })
 
         this.input.keyboard.on('keyup-DOWN', () => {
             this.player.body.velocity.y = 0
+            this.player.play('standing-front')
         })
 
         this.input.keyboard.on('keyup-LEFT', () => {
