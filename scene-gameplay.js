@@ -24,16 +24,30 @@ class Gameplay extends Phaser.Scene {
         // Draw player with selected skin color
         let skinColor = localStorage.getItem('skinColor')
         this.player = this.add.sprite(400, 300, 'player-skin-' + skinColor)
+        this.player.visible = false
 
-        // Create player animations
+        // Create player standing animation
         this.anims.create({
             key: 'standing-front',
-            frames: this.anims.generateFrameNumbers('player-skin-' + skinColor, { start: 0, end: 0 })
+            frames: this.anims.generateFrameNumbers('player-skin-' + skinColor, { start: 1, end: 1 })
         })
 
+        // Play standing by default
+        this.player.play('standing-front')
+        this.player.visible = true
+
+        this.anims.create({
+            key: 'walking-front',
+            frames: this.anims.generateFrameNumbers('player-skin-' + skinColor, { start: 0, end: 2 }),
+            frameRate: 5,
+            repeat: -1,
+            yoyo: true
+        })
+
+        // Additional animations
         this.anims.create({
             key: 'standing-back',
-            frames: this.anims.generateFrameNumbers('player-skin-' + skinColor, { start: 1, end: 1 })
+            frames: this.anims.generateFrameNumbers('player-skin-' + skinColor, { start: 3, end: 3 })
         })
 
         // Player physics
@@ -64,6 +78,11 @@ class Gameplay extends Phaser.Scene {
 
         this.input.keyboard.on('keydown-DOWN', () => {
             this.player.body.velocity.y = 100
+
+            // Play walking animation
+            if (!this.player.anims.isPlaying){
+                this.player.play('walking-front')
+            }
         })
 
         this.input.keyboard.on('keydown-LEFT', () => {
