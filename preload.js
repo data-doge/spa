@@ -16,7 +16,8 @@ class Preload extends Phaser.Scene {
       this.load.spritesheet('player-skin-pale', 'assets/player/skin-pale/player-default.png', { frameWidth: 36, frameHeight: 64 });
 
       // Scenery
-      this.load.image('floor', 'assets/scenery/background-tile.png')
+      this.load.image('floor-blue', 'assets/scenery/background-tile-blue.png')
+      this.load.image('floor-gray', 'assets/scenery/background-tile-gray.png')
 
       // Buttons
       this.load.spritesheet('button-back', 'assets/buttons/button-back.png', { frameWidth: 96, frameHeight: 64, endFrame: 3 });
