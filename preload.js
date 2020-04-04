@@ -13,7 +13,8 @@ class Preload extends Phaser.Scene {
       this.add.text(300,300,'Loading...')
 
       // Forms
-      this.load.html('form-username', 'assets/text/usernameform.html')
+      this.load.html('form-username', 'assets/html/usernameform.html')
+      this.load.html('mic-permission-container', 'assets/html/mic-permission-button.html')
 
       // Player sprites
       this.load.spritesheet('player-skin-dark', 'assets/player/skin-dark/player-default.png', { frameWidth: 36, frameHeight: 64 })

@@ -57,7 +57,7 @@ class CharacterSelect extends Phaser.Scene {
     }
 
     continue () {
-        this.scene.start('Gameplay')
+        this.scene.start('MicPermissions')
     }
 
 }

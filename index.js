@@ -4,6 +4,7 @@ const $ = require('jquery')
 const Preload = require('./preload')
 const EnterUsername = require('./scene-enter_username')
 const CharacterSelect = require('./scene-character_select')
+const MicPermissions = require('./scene-mic_permissions')
 const Gameplay = require('./scene-gameplay')
 const Credits = require('./scene-credits')
 
@@ -22,7 +23,7 @@ const config = {
   dom: {
     createContainer: true
   },
-  scene: [Preload, EnterUsername, CharacterSelect, Gameplay, Credits]
+  scene: [Preload, EnterUsername, CharacterSelect, MicPermissions, Gameplay, Credits]
 }
 
 const game = new Phaser.Game(config)
