@@ -2,6 +2,7 @@ const Phaser = require('phaser')
 const uuid = require('uuid')
 const $ = require('jquery')
 const Preload = require('./preload')
+const EnterUsername = require('./scene-enter_username')
 const CharacterSelect = require('./scene-character_select')
 const Gameplay = require('./scene-gameplay')
 const Credits = require('./scene-credits')
@@ -13,16 +14,20 @@ const config = {
   width: 800,
   height: 600,
   pixelArt: true,
+  parent: 'spa-game-container',
   physics: {
     default: 'arcade',
     arcade: { }
   },
-  scene: [Preload, CharacterSelect, Gameplay, Credits]
+  dom: {
+    createContainer: true
+  },
+  scene: [Preload, EnterUsername, CharacterSelect, Gameplay, Credits]
 }
 
 const game = new Phaser.Game(config)
 
-/// //////////////////////////////////
+/// ////////////////////////////////// RTC
 
 window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection
 window.RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate || window.webkitRTCIceCandidate
@@ -31,7 +36,7 @@ window.RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSess
 const id = uuid.v4()
 let $peerConnection = null
 let $localStream = null
-const $serverConnection = new WebSocket('wss://spa-server.ngrok.io')
+const $serverConnection = new WebSocket('ws://127.0.0.1:3434')
 $serverConnection.onmessage = gotMessageFromServer
 
 audioShit.start((err, stream) => {

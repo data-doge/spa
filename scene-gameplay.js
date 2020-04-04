@@ -2,7 +2,7 @@ class Gameplay extends Phaser.Scene {
 
     constructor ()
     {
-        super('Gameplay');
+        super('Gameplay')
     }
 
     preload () {
@@ -10,13 +10,11 @@ class Gameplay extends Phaser.Scene {
     }
 
     create () {
-        console.log('Gameplay')
-
         // Set camera
         let cam = this.cameras.main
 
         // Set bounds of world
-        this.physics.world.setBounds(0, 0, 1920, 1080);
+        this.physics.world.setBounds(0, 0, 1920, 1080)
 
         // Tile background
         let floor = this.add.tileSprite(0, 0, 1920, 1080, 'floor-gray').setOrigin(0)
@@ -87,10 +85,13 @@ class Gameplay extends Phaser.Scene {
 
         // Player physics
         this.physics.add.existing(this.player)
-        this.player.body.collideWorldBounds = true;
+        this.player.body.collideWorldBounds = true
 
         // Follow the player
         cam.startFollow(this.player)
+
+        // Pull in username
+        let username = localStorage.getItem('username')
 
         // Back button
         let backButton = this.add.sprite(30, this.cameras.main.height - 30, 'button-back').setOrigin(0, 1).setScrollFactor(0)
@@ -169,7 +170,7 @@ class Gameplay extends Phaser.Scene {
     }
 
     goToCharacterSelect () {
-        localStorage.removeItem('skinColor');
+        localStorage.removeItem('skinColor')
         this.anims.remove('standing-front')
         this.anims.remove('standing-back')
         this.anims.remove('standing-left')

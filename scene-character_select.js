@@ -1,10 +1,8 @@
-// const game = require('./index')
-
 class CharacterSelect extends Phaser.Scene {
 
     constructor ()
     {
-        super('CharacterSelect');
+        super('CharacterSelect')
     }
 
     preload () {
@@ -12,13 +10,15 @@ class CharacterSelect extends Phaser.Scene {
     }
 
     create () {
-        let testText = this.add.text(400, 60, 'Select a Character!', { fontSize: 40 }).setOrigin(0.5);
+        let username = localStorage.getItem('username')
+
+        let testText = this.add.text(400, 60, 'Select a Character, ' + username + '!', { fontSize: 40 }).setOrigin(0.5)
 
         // Check for existing skin color selection
         let skinColor = localStorage.getItem('skinColor')
 
         if (skinColor) {
-            this.continue();
+            this.continue()
         }
 
         // Define skin color options on screen, make them clickable and run function to set skin color
@@ -27,6 +27,15 @@ class CharacterSelect extends Phaser.Scene {
         let playerOptionTan = this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY, 'player-skin-tan').setInteractive().on('pointerdown', () => { this.setSkinColor('tan') })
         let playerOptionLight = this.add.sprite(this.cameras.main.centerX + 100, this.cameras.main.centerY, 'player-skin-light').setInteractive().on('pointerdown', () => { this.setSkinColor('light') })
         let playerOptionPale = this.add.sprite(this.cameras.main.centerX + 200, this.cameras.main.centerY, 'player-skin-pale').setInteractive().on('pointerdown', () => { this.setSkinColor('pale') })
+
+        // Back button
+        let backButton = this.add.sprite(30, this.cameras.main.height - 30, 'button-back').setOrigin(0, 1).setScrollFactor(0)
+        backButton.setInteractive().on('pointerdown', () => {
+            backButton.setFrame(2)
+            this.goToEnterUsername()
+        })
+        backButton.on('pointerover', () => { backButton.setFrame(1) })
+        backButton.on('pointerout', () => { backButton.setFrame(0) })
     }
 
     update () {
@@ -36,6 +45,11 @@ class CharacterSelect extends Phaser.Scene {
     setSkinColor (skinColor) {
         localStorage.setItem('skinColor', skinColor)
         this.continue()
+    }
+
+    goToEnterUsername () {
+        localStorage.removeItem('username')
+        this.scene.start('EnterUsername')
     }
 
     continue () {
