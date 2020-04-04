@@ -145,6 +145,17 @@ class Gameplay extends Phaser.Scene {
         // Player physics
         this.physics.world.enable(playerContainer)
         playerContainer.body.collideWorldBounds = true
+
+        // Draw username background
+        let usernameFontSize = 12
+        let usernameTextBackground = this.add.graphics()
+        playerContainer.add(usernameTextBackground)
+        usernameTextBackground.fillStyle(0x000000, 0.5)
+        usernameTextBackground.fillRoundedRect(playerContainer.username.length * (usernameFontSize/2) * -1, -52, playerContainer.username.length * usernameFontSize, 16, 8)
+
+        // Draw username
+        let usernameText = this.add.text(usernameTextBackground.x, -45, playerContainer.username, {color: '#FFFFFF', fontSize: usernameFontSize}).setOrigin(0.5)
+        playerContainer.add(usernameText)
     }
 
     setMainPlayerCharacter (playerContainer) {
