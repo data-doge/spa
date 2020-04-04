@@ -10,6 +10,9 @@ class EnterUsername extends Phaser.Scene {
     }
 
     create () {
+        let cam = this.cameras.main;
+        cam.setBackgroundColor('#f49ac1')
+
         // Check for existing username
         let username = localStorage.getItem('username')
 
@@ -17,10 +20,11 @@ class EnterUsername extends Phaser.Scene {
             this.continue()
         }
 
-        let testText = this.add.text(400, 60, 'Enter your username', { fontSize: 40 }).setOrigin(0.5)
+        let textPrompt = this.add.dynamicBitmapText(cam.centerX, 60, 'rainyhearts', 'Enter your username', 48).setOrigin(0.5)
+        textPrompt.tint = 0x000000
 
         // Load a form for entering username
-        let usernameForm = this.add.dom(this.cameras.main.centerX, this.cameras.main.centerY).createFromCache('form-username')
+        let usernameForm = this.add.dom(550, cam.centerY).createFromCache('form-username')
 
         // On click check username
         usernameForm.addListener('click')

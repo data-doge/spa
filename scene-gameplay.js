@@ -20,7 +20,7 @@ class Gameplay extends Phaser.Scene {
         let floor = this.add.tileSprite(0, 0, 1920, 1080, 'floor-gray').setOrigin(0)
 
         // Create group for player character
-        this.mainPlayer = this.add.container(this.cameras.main.centerX, this.cameras.main.centerY)
+        this.mainPlayer = this.add.container(cam.centerX, cam.centerY)
         this.physics.world.enable(this.mainPlayer)
 
         // Pull in username and skin color
@@ -147,14 +147,15 @@ class Gameplay extends Phaser.Scene {
         playerContainer.body.collideWorldBounds = true
 
         // Draw username background
-        let usernameFontSize = 12
+        let usernameFontSize = 16
+        let usernameWidth = playerContainer.username.length * usernameFontSize * .5
         let usernameTextBackground = this.add.graphics()
         playerContainer.add(usernameTextBackground)
-        usernameTextBackground.fillStyle(0x000000, 0.5)
-        usernameTextBackground.fillRoundedRect(playerContainer.username.length * (usernameFontSize/2) * -1, -52, playerContainer.username.length * usernameFontSize, 16, 8)
+        usernameTextBackground.fillStyle(0x000000, 0.75)
+        usernameTextBackground.fillRoundedRect(usernameWidth/2*-1, -52, usernameWidth, 16, 4)
 
         // Draw username
-        let usernameText = this.add.text(usernameTextBackground.x, -45, playerContainer.username, {color: '#FFFFFF', fontSize: usernameFontSize}).setOrigin(0.5)
+        let usernameText = this.add.dynamicBitmapText(0, -45,'rainyhearts', playerContainer.username, usernameFontSize).setOrigin(0.5)
         playerContainer.add(usernameText)
     }
 

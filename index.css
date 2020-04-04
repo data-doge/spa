@@ -1,3 +1,24 @@
-main {
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
+body {
   text-align: center;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+}
+
+button, input {
+  -webkit-appearance: none;
+  border: none;
+  font-family: 'VT323', monospace;
+  font-size: 1.5em;
+  box-sizing: border-box;
+  padding: .25em .5em;
+  height: auto;
+  margin: 0;
+}
+
+button, input[type="submit"] {
+  -webkit-appearance: none;
+  background-color: #000;
+  color: #fff;
 }

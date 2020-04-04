@@ -10,9 +10,13 @@ class CharacterSelect extends Phaser.Scene {
     }
 
     create () {
+        let cam = this.cameras.main;
+        cam.setBackgroundColor('#f49ac1')
+
         let username = localStorage.getItem('username')
 
-        let testText = this.add.text(400, 60, 'Select a Character, ' + username + '!', { fontSize: 40 }).setOrigin(0.5)
+        let textPrompt = this.add.dynamicBitmapText(cam.centerX, 60, 'rainyhearts', 'Select a Character,\n' + username + '!', 48).setOrigin(0.5, 0).setCenterAlign();
+        textPrompt.tint = 0x000000
 
         // Check for existing skin color selection
         let skinColor = localStorage.getItem('skinColor')

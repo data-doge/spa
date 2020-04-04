@@ -6,7 +6,11 @@ class Preload extends Phaser.Scene {
     }
 
     preload () {
-      let testText = this.add.text(300,300,'Loading...')
+      // Fonts
+      this.load.bitmapFont('rainyhearts', 'assets/fonts/rainyhearts_96/rainyhearts_96.png', 'assets/fonts/rainyhearts_96/rainyhearts_96.fnt');
+
+      // Show loading text
+      this.add.text(300,300,'Loading...')
 
       // Forms
       this.load.html('form-username', 'assets/text/usernameform.html')
