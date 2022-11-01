@@ -38,9 +38,9 @@
     "uuid": "^7.0.2"
   },
   "devDependencies": {
-    "browserify": "^10.0.0",
+    "browserify": "^17.0.0",
     "budo": "^4.0.0",
-    "gh-pages": "^0.3.0",
+    "gh-pages": "^4.0.0",
     "smokestack": "^3.3.0",
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0",
