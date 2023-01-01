@@ -34,7 +34,7 @@
   "homepage": "https://github.com/data-doge/spa",
   "dependencies": {
     "jquery": "^3.4.1",
-    "phaser": "^3.22.0",
+    "phaser": "^3.55.2",
     "uuid": "^7.0.2"
   },
   "devDependencies": {
